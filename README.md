@@ -72,9 +72,14 @@ npm run dev
 
 ## Testing
 - Use **Postman** to test API endpoints. A Postman collection is provided in `vodoTask.postman_collection.json` with the code .
+- auth token  is update  automatically and shared across all pages in postman .
 
 
+## images of website
+#### login page 
+<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/login.png?raw=true">
 
-
+#### notes page 
+<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/notes.png?raw=true">
 Happy Coding! 🚀
 
