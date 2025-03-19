@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\NoteController;
+use App\Http\Controllers\Api\ProfileController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -14,6 +15,9 @@ Route::middleware("auth:sanctum")->group(function () {
 
     Route::post("/notes/{note}", [NoteController::class, "update"]);
     Route::apiResource("notes", NoteController::class)->except("create", 'edit');
+
+    Route::post("/profile", [ProfileController::class, 'updateProfile']);
+    Route::get("/profile", [ProfileController::class, 'getProfile']);
 });
 
 
@@ -24,4 +28,3 @@ Route::post('/logout', [AuthController::class, 'logout'])
 
 
 Route::post('/forgot-password', [AuthController::class, "forgot_password"])->middleware('guest')->name('password.email');
-
