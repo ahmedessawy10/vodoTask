@@ -19,17 +19,9 @@ This project is a **User Authentication System** built with Laravel, including *
 - Input validation to prevent SQL injection & XSS attacks.
 - Secure password storage using Laravel's hashing mechanism.
 
-### 4. **Bonus Features**
-- Email verification during registration.
-- "Forgot Password" feature to reset passwords via email.
-
 ## Installation
 
-### 1. **Clone the repository**
-```sh
- git clone https://github.com/YOUR_USERNAME/your-repo.git
- cd your-repo
-```
+
 
 ### 2. **Install dependencies**
 ```sh
@@ -56,6 +48,7 @@ php artisan migrate --seed
 ### 5. **Run the Development Server**
 ```sh
 php artisan serve
+npm run dev
 ```
 
 ## API Documentation
@@ -65,7 +58,8 @@ php artisan serve
 | POST   | `/api/register`   | Register a new user |
 | POST   | `/api/login`      | Authenticate user |
 | POST   | `/api/logout`     | Logout user (requires token) |
-| PUT    | `/api/profile`    | Update profile (requires token) |
+| POST   | `/api/profile`    | Update profile (requires token) |
+| GET    | `/api/profile`    | GET profile (requires token) |
 
 ### **2. Notes API**
 | Method | Endpoint           | Description        |
@@ -73,36 +67,14 @@ php artisan serve
 | GET    | `/api/notes`      | Get all user notes |
 | POST   | `/api/notes`      | Create a new note |
 | GET    | `/api/notes/{id}` | Get a specific note |
-| PUT    | `/api/notes/{id}` | Update a note |
+| POST   | `/api/notes/{id}` | Update a note |
 | DELETE | `/api/notes/{id}` | Delete a note |
 
 ## Testing
-- Use **Postman** to test API endpoints. A Postman collection is provided in `postman_collection.json`.
+- Use **Postman** to test API endpoints. A Postman collection is provided in `vodoTask.postman_collection.json` with the code .
 
-## Deployment
-- Run the following commands to prepare for production:
-```sh
-php artisan config:cache
-php artisan route:cache
-php artisan migrate --force
-```
 
-## Submission
-- Upload your project to GitHub.
-- Send the link via email to:
-  - **hamdy.emad@vodoglobal.com**
-  - **alaa.hamdy@vodoglobal.com**
-  - CC: **mohamed.hashem@vodoglobal.com**
 
-## Evaluation Criteria
-- **Functionality**: All authentication and CRUD features working.
-- **Code Quality**: Clean, well-structured, and maintainable code.
-- **Security**: Proper implementation of security measures.
-- **User Experience**: Simple, intuitive interface.
-- **Bonus Features**: Email verification and password reset.
-
----
-**Deadline:** Thursday, 20/05/2025.
 
 Happy Coding! 🚀
 
