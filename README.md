@@ -81,5 +81,7 @@ npm run dev
 
 #### notes page 
 <img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/notes.png?raw=true">
+#### update notes page 
+<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/updatenote.png?raw=true">
 Happy Coding! 🚀
 
