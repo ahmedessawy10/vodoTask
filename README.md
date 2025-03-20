@@ -71,6 +71,8 @@ npm run dev
 | POST   | `/api/logout`     | Logout user (requires token) |
 | POST   | `/api/profile`    | Update profile (requires token) |
 | GET    | `/api/profile`    | GET profile (requires token) |
+| post   | `/api/forgetpassword`    |send mail to reset password (require mail) |
+| post   | `/api/resetpassword`    | reset password with new  (requires token,email,password,password_confirmation) |
 
 ### **2. Notes API**
 | Method | Endpoint           | Description        |
@@ -102,6 +104,6 @@ npm run dev
 
 #### Reset password by mail 
 
-<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/resetpoasswordbymail.png?raw=true">
+<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/resetpasswordbymail.png?raw=true">
 Happy Coding! 🚀
 
