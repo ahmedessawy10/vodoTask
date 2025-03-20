@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Auth\Events\PasswordReset;
 
 class AuthController extends Controller
 {
@@ -57,16 +62,51 @@ class AuthController extends Controller
     }
 
 
-
-    public function forgot_password(){
-        $request->validate(['email' => 'required|email']);
-     
+    public function forgot_password(Request $request)
+    {
+        $request->validate(['email' => 'required|email|exists:users,email']);
         $status = Password::sendResetLink(
             $request->only('email')
         );
-     
-        return $status === Password::ResetLinkSent
-            ? back()->with(['status' => __($status)])
-            : back()->withErrors(['email' => __($status)]);
+
+        if ($status === Password::ResetLinkSent) {
+
+            $token =  DB::table("password_reset_tokens")->select("email", "token")->where("email", $request->email)->first()->token;
+            return   response()->json(['status' => __($status), "token" => $token, "email" => $request->email]);
+        }
+
+        return  response()->json(['email' => __($status)]);
+    }
+
+    public function  reset_password(Request $request)
+    {
+
+        $request->validate([
+            'token' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'confirmed'],
+        ]);
+
+        if (Hash::check("b7056ebeda361692923c03ddae42af952fbdfd26cc708ac44ffea6bbc0a546e1", $request->token)) {
+            $request->token = "ture";
+        }
+        return  response()->json(['email' => $request->only('email', 'password', 'password_confirmation', 'token')]);
+
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function (User $user) use ($request) {
+                $user->forceFill([
+                    'password' => Hash::make($request->password),
+                    'remember_token' => Str::random(60),
+                ])->save();
+            }
+        );
+
+        if ($status == Password::PASSWORD_RESET) {
+            return  response()->json(['messaage' => __($status)]);
+        }
+
+        return  response()->json(['messaage' => __($status)], 401);
     }
 }

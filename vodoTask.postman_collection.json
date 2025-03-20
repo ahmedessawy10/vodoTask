@@ -154,6 +154,108 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "forget password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json();\r",
+									"pm.collectionVariables.set(\"reset_password_token\",data.token)\r",
+									"pm.collectionVariables.set(\"reset_password_email\",data.email)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "elessawy238@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/forgetpassword",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"forgetpassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{reset_password_email}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "{{reset_password_token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/resetpassword",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"resetpassword"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -443,6 +545,20 @@
 		{
 			"key": "auth",
 			"value": ""
+		},
+		{
+			"key": "reset_password_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "reset_password_email",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"value": "",
+			"type": "string"
 		}
 	]
 }
