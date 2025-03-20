@@ -18,6 +18,16 @@ This project is a **User Authentication System** built with Laravel, including *
 - CSRF protection for web forms.
 - Input validation to prevent SQL injection & XSS attacks.
 - Secure password storage using Laravel's hashing mechanism.
+- Using Gate and Policies for authentication to prevent users from editing other users' data.
+  
+
+### 4. **Api **
+- Clean and structured code.
+- Using Sanctum for authentication.
+- Auth token is shared across all Postman requests using a script to make it easy to use.
+- Using the Resource interface to customize controller responses.
+  
+
 
 ## Installation
 
@@ -72,9 +82,21 @@ npm run dev
 
 ## Testing
 - Use **Postman** to test API endpoints. A Postman collection is provided in `vodoTask.postman_collection.json` with the code .
+- auth token  is update  automatically and shared across all pages in postman .
 
 
+## images of website
+#### login page 
+
+<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/login.png?raw=true">
 
 
+#### notes page 
+
+<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/notes.png?raw=true">
+
+#### update notes page 
+
+<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/updatenote.png?raw=true">
 Happy Coding! 🚀
 
