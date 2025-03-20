@@ -9,6 +9,7 @@ This project is a **User Authentication System** built with Laravel, including *
 - Secure **login** and **logout**.
 - Profile management (update name, email, and password).
 - Password hashing for security.
+- Reset password by email
 
 ### 2. **CRUD Note Application**
 - Users can **create, read, update, and delete** their own notes.
@@ -98,5 +99,9 @@ npm run dev
 #### update notes page 
 
 <img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/updatenote.png?raw=true">
+
+#### Reset password by mail 
+
+<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/resetpoasswordbymail.png?raw=true">
 Happy Coding! 🚀
 
