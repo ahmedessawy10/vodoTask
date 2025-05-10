@@ -74,33 +74,27 @@ npm run dev
 | post   | `/api/forgetpassword`    |send mail to reset password (require mail) |
 | post   | `/api/resetpassword`    | reset password with new  (requires token,email,password,password_confirmation) |
 
-### **2. Notes API**
+### **2. Leave request API**
 | Method | Endpoint           | Description        |
 |--------|------------------|------------------|
-| GET    | `/api/notes`      | Get all user notes |
-| POST   | `/api/notes`      | Create a new note |
-| GET    | `/api/notes/{id}` | Get a specific note |
-| POST   | `/api/notes/{id}` | Update a note |
-| DELETE | `/api/notes/{id}` | Delete a note |
+| GET    | `/api/request/leave`      | Get all awn requests|
+| GET    | `/api/request/leave/{id}`      | Get all specifice request |
+| POST   | `/api/request/leave`      | Create new request |
+| POST   | `/api/request/leave/allreviews`      | get all request for manager to review|
+| POST   | `/api/request/leave/review/{id}`      |approve or reject the  request|
+| POST   | `/api/request/leave/hr/` | if approve it can be  seen by hr |
 
 ## Testing
-- Use **Postman** to test API endpoints. A Postman collection is provided in `vodoTask.postman_collection.json` with the code .
+- Use **Postman** to test API endpoints. A Postman collection is provided in `leave_request.postman_collection.json` with the code .
 - auth token  is update  automatically and shared across all pages in postman .
 
 
-## images of website
-#### login page 
+## 
+#### ami notification
 
-<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/login.png?raw=true">
+<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/mail notification.png?raw=true">
 
 
-#### notes page 
-
-<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/notes.png?raw=true">
-
-#### update notes page 
-
-<img src="https://github.com/ahmedessawy10/vodoTask/blob/main/public/images/updatenote.png?raw=true">
 
 #### Reset password by mail 
 
