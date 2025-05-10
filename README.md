@@ -1,4 +1,4 @@
-# User Authentication System & CRUD Note Application
+# User Authentication System & CRUD leave request
 
 ## Overview
 This project is a **User Authentication System** built with Laravel, including **API endpoints** for user registration, login, logout, profile management, and a **CRUD note application**. The system is designed with security, usability, and RESTful API principles in mind.
